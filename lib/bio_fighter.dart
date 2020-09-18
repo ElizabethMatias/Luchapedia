@@ -1,61 +1,113 @@
 import 'package:dcpedia/all_fighters.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class BioFighter extends StatelessWidget {
   String urlKemonito =
       "https://imagenes.milenio.com/bphSgOtpXqNAf5Zn_9i1QK3v2fs=/958x596/smart/https://www.milenio.com/uploads/media/2020/03/24/kemonito-santiago-chaparro_0_9_958_596.jpeg";
   String bioK =
       "KeMinito nacio el 3 de julio de 1967, es un icono de la lucha libre profesional mexicano, actualmente trabaja para la empresa Consejo Mundial de Lucha Libre (CMLL).";
+  String bioKweb =
+      "KeMinito nacio el 3 de julio de 1967, es un icono de la lucha libre profesional mexicano, actualmente trabaja para la empresa Consejo Mundial de Lucha Libre (CMLL).\n\n Antes de ser KeMonito, fue conocido como Alushe (1984-2003), cabe destacar haber participado bajo este mismo nombre en el programa de televisión Odisea de Burbujas, SuoerVacaciones y las aventuras de Capulina.\n\nDe igual forma lucho bajo el nombre de Duende Maya. Como dato curioso tomo el titulo de KeMonito en el 2003, el cual sigue portando hasta la actualidad.";
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: Icon(
-          Icons.directions_walk,
-          size: 40,
-        ),
-        title: Text(
-          'Luchapedia',
-          style: TextStyle(
-            fontSize: 30,
-            color: Colors.amber[50],
-          ),
-        ),
-        backgroundColor: Colors.purple,
-      ),
-      body: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment(0.0, 0.0),
-                end: Alignment(0.6, 0.9),
-                colors: [
-                  Colors.purple[700],
-                  Colors.purple,
-                ],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 811) {
+          return Scaffold(
+            appBar: AppBar(
+              leading: Icon(
+                Icons.directions_walk,
+                size: 40,
               ),
-            ),
-          ),
-          Column(
-            children: [
-              Expanded(child: Container()),
-              luchadorBio(),
-              Expanded(child: Container()),
-              Text(
-                'Mas Luchadores',
+              title: Text(
+                'Luchapedia',
                 style: TextStyle(
-                  fontSize: 29,
-                  color: Color.fromRGBO(220, 229, 227, 0.9),
+                  fontSize: 30,
+                  color: Colors.amber[50],
                 ),
               ),
-              Expanded(child: Container()),
-              listaLuchadores(context),
-              Expanded(child: Container()),
-            ],
-          )
-        ],
-      ),
+              backgroundColor: Colors.purple,
+            ),
+            body: Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment(0.0, 0.0),
+                      end: Alignment(0.6, 0.9),
+                      colors: [
+                        Colors.purple[700],
+                        Colors.purple,
+                      ],
+                    ),
+                  ),
+                ),
+                Column(
+                  children: [
+                    Expanded(child: Container()),
+                    luchadorBio(),
+                    Expanded(child: Container()),
+                    Text(
+                      'Mas Luchadores',
+                      style: TextStyle(
+                        fontSize: 29,
+                        color: Color.fromRGBO(220, 229, 227, 0.9),
+                      ),
+                    ),
+                    Expanded(child: Container()),
+                    listaLuchadores(context),
+                    Expanded(child: Container()),
+                  ],
+                )
+              ],
+            ),
+          );
+          //SCaffold
+        } else {
+          return Scaffold(
+            appBar: AppBar(
+              centerTitle: true,
+              leading: Icon(
+                Icons.directions_walk,
+                size: 40,
+              ),
+              title: Text(
+                'Luchapedia Web',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.amber[50],
+                ),
+              ),
+              backgroundColor: Colors.purple,
+            ),
+            body: Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment(0.0, 0.0),
+                      end: Alignment(0.0, 0.50),
+                      colors: [
+                        Colors.purple[700],
+                        Colors.purple,
+                      ],
+                    ),
+                  ),
+                ),
+                Row(
+                  children: [
+                    Expanded(child: luchadorBioWeb(constraints)),
+                    Expanded(child: AllFighters().figthersTable(context)),
+                  ],
+                )
+              ],
+            ),
+          );
+          //SCaffold
+        }
+      },
     );
   } //build
 
@@ -158,7 +210,91 @@ class BioFighter extends StatelessWidget {
         ),
       ),
     );
-  } //DCbio
+  }
+  //luchadorBio
+
+  Widget luchadorBioWeb(BoxConstraints constraints) {
+    return Stack(
+      children: [
+        Positioned(
+          top: 50,
+          left: constraints.maxWidth * 0.05,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: FadeInImage.assetNetwork(
+              placeholder: "assets/Gifs/loading.gif",
+              image: urlKemonito,
+              width: (constraints.maxWidth < 1200)
+                  ? 430
+                  : constraints.maxWidth * 0.4,
+            ),
+          ),
+        ),
+        Positioned(
+          top: (constraints.maxWidth < 1200) ? 245 : constraints.maxWidth * 0.2,
+          left: constraints.maxWidth * 0.07,
+          child: Container(
+            width: (constraints.maxWidth < 1200)
+                ? 380
+                : constraints.maxWidth * 0.37,
+            height: constraints.maxHeight * 0.5,
+            decoration: BoxDecoration(
+                color: Colors.indigo[700],
+                borderRadius: BorderRadius.circular(10)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  child: Text(
+                    "Kemonito",
+                    style: TextStyle(
+                      fontSize: 38,
+                      color: Colors.grey[300],
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 5),
+                    child: Text(
+                      bioKweb,
+                      style: TextStyle(
+                        fontSize: (constraints.maxWidth < 1230) ? 15 : 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    width: 140,
+                    child: FlatButton(
+                      color: Colors.pink[400],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          Text(
+                            'Me gusta',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Icon(Icons.favorite_border),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+  //luchadorBioWeb
 
   Widget listaLuchadores(BuildContext context) {
     return Center(

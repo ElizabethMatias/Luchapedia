@@ -50,460 +50,503 @@ class AllFighters extends StatelessWidget {
               ),
             ),
           ),
-          figthersTable(),
+          figthersTable(context),
         ],
       ),
     );
   } //build
 
-  Widget figthersTable() {
-    return Table(
+  Widget figthersTable(BuildContext context) {
+    double ancho = (MediaQuery.of(context).size.width) / 2;
+    double alto = (MediaQuery.of(context).size.height);
+    Widget tituloLuchadores;
+    if (ancho < 811 && alto < 770) {
+      tituloLuchadores = Container();
+    } else {
+      tituloLuchadores = Text(
+        "Mas Luchadores",
+        style: TextStyle(
+          fontSize: 50,
+          color: Colors.yellow[50],
+        ),
+      );
+    }
+    return Column(
       children: [
-        TableRow(
+        tituloLuchadores,
+        Table(
           children: [
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 100,
-                  height: 125,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlHeroina,
-                        width: 120,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 120,
-                        child: Text(
-                          'Heroina',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 100,
-                  height: 125,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlMistico,
-                        width: 120,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 120,
-                        child: Text(
-                          'Mistico',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 100,
-                  height: 125,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlLaHiedra,
-                        width: 120,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 120,
-                        child: Text(
-                          'La Hiedra',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        TableRow(
-          children: [
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 100,
-                  height: 125,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlParca,
-                        width: 120,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 120,
-                        child: Text(
-                          'La Parca',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 100,
-                  height: 125,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlPrincesaAzul,
-                        width: 120,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 100,
-                        child: Text(
-                          'Princesa \nAzul',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 100,
-                  height: 125,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlMascaraSagrada,
-                        width: 120,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 100,
-                        child: Text(
-                          'Mascara \nSagrada',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        TableRow(
-          children: [
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 120,
+            TableRow(
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
                   height: 150,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlBaronessa,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
                         width: 120,
                         height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 120,
-                        child: Text(
-                          'Baronesa',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlHeroina,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 120,
+                              child: Text(
+                                'Heroina',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 120,
-                  height: 125,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlOctagon,
-                        width: 120,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 120,
-                        child: Text(
-                          'Octagon',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 100,
-                  height: 125,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlAtlantis,
-                        width: 120,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 120,
-                        child: Text(
-                          'Atlantis',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        TableRow(
-          children: [
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 120,
+                Container(
+                  margin: EdgeInsets.all(10),
                   height: 150,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlKeira,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
                         width: 120,
                         height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 120,
-                        child: Text(
-                          'Keira',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlMistico,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 120,
+                              child: Text(
+                                'Mistico',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 150,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        width: 120,
+                        height: 150,
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlLaHiedra,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 120,
+                              child: Text(
+                                'La Hiedra',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 120,
-                  height: 125,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlDosCaras,
+            TableRow(
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 150,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
                         width: 120,
                         height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 120,
-                        child: Text(
-                          'Dos Caras',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlParca,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 120,
+                              child: Text(
+                                'La Parca',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 150,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        width: 120,
+                        height: 150,
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlPrincesaAzul,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 100,
+                              child: Text(
+                                'Princesa \nAzul',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 150,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        width: 120,
+                        height: 150,
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlMascaraSagrada,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 100,
+                              child: Text(
+                                'Mascara \nSagrada',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 150,
-              width: 60,
-              //color: Colors.blueGrey[800],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: 100,
-                  height: 125,
-                  child: Stack(
-                    children: [
-                      FadeInImage.assetNetwork(
-                        placeholder: "assets/Gifs/loading.gif",
-                        image: urlLadyFlammer,
+            TableRow(
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 150,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
                         width: 120,
                         height: 150,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        left: 10,
-                        top: 100,
-                        child: Text(
-                          'Lady \nFlammer',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50],
-                            fontWeight: FontWeight.bold,
-                          ),
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlBaronessa,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 120,
+                              child: Text(
+                                'Baronesa',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 150,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        width: 120,
+                        height: 150,
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlOctagon,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 120,
+                              child: Text(
+                                'Octagon',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 150,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        width: 120,
+                        height: 150,
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlAtlantis,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 120,
+                              child: Text(
+                                'Atlantis',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            TableRow(
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 150,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        width: 120,
+                        height: 150,
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlKeira,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 120,
+                              child: Text(
+                                'Keira',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 150,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        width: 120,
+                        height: 150,
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlDosCaras,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 120,
+                              child: Text(
+                                'Dos Caras',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 150,
+                  width: 60,
+                  //color: Colors.blueGrey[800],
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        width: 120,
+                        height: 150,
+                        child: Stack(
+                          children: [
+                            FadeInImage.assetNetwork(
+                              placeholder: "assets/Gifs/loading.gif",
+                              image: urlLadyFlammer,
+                              width: 120,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              left: 10,
+                              top: 100,
+                              child: Text(
+                                'Lady \nFlammer',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.yellow[50],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
